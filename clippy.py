@@ -6,8 +6,12 @@ def get_data_from_api(number):
     api_url = f"http://clippy.offensivelearning.com/id/{number}"
     
     # Make a GET request to the API
-    response = requests.get(api_url)
 
+    try:
+        response = requests.get(api_url)
+    except:
+        print("Website probably not up! Exiting")
+        exit()
 
     
     # Check if the request was successful
